@@ -1,0 +1,76 @@
+
+body{
+    margin: 0;
+    padding: 0;
+ }
+
+#main{
+
+    width: 100%;
+    height: 100%;
+}
+
+#logo{
+    float: left;
+    margin: 25px;
+}
+
+#menu{
+    display: flexbox;
+    float: right;
+    margin: 25px;
+}
+
+#btn-menu{
+    border: none;
+    outline: none;
+}
+
+#menu :hover{
+    background-color: darkgray;
+    transition: 0.5s;
+}
+
+@font-face{
+    src:"https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet";
+}
+
+
+
+#menufloat{
+    display: none;
+    color: white;
+    float: right;
+    margin: 100px 20px;
+    padding: 30px 0px 30px 30px;
+    position: relative;
+    width: 212px;
+    height: 218px;
+    background: #000000;
+    border-radius: 30px 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+li{
+    display: flex;
+    padding: 18px;
+    list-style: none;
+
+    
+}
+
+
+li:hover{
+    background-color: rgb(33, 33, 51);
+    transition: 0.5s;
+}
+
+ul{
+    padding-inline-start: 0px;
+    margin-top: 0px;
+    width: 175px;
+}
+
+    
+
+  
