@@ -5,14 +5,12 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import logo from '../../imgs/logomarca.jpg'
 
-
-
 class Sidebar extends React.Component{
 
     render(){
         function alterarEstado(e){
                 e.preventDefault();
-                if(document.getElementById("menufloat").style.display == "none"){
+                if(document.getElementById("menufloat").style.display === "none"){
                     document.getElementById("menufloat").style.display="block"
                 }else{
                     document.getElementById("menufloat").style.display="none"
