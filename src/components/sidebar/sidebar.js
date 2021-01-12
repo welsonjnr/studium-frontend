@@ -10,9 +10,14 @@ import logo from '../../imgs/logomarca.jpg'
 class Sidebar extends React.Component{
 
     render(){
-        function abrirModal(e){
+        function alterarEstado(e){
                 e.preventDefault();
-                document.getElementById("menufloat").style.display="block"
+                if(document.getElementById("menufloat").style.display == "none"){
+                    document.getElementById("menufloat").style.display="block"
+                }else{
+                    document.getElementById("menufloat").style.display="none"
+                }
+                
         }
         return(
             <div id="main">
@@ -20,7 +25,7 @@ class Sidebar extends React.Component{
                     <img src={logo} alt="Alguma coisa"/>
                 </div>  
                 <div id="menu" >
-                    <button id="btn-menu" onClick={abrirModal}><FontAwesomeIcon className="fas fa-bars fa-2x"icon={faBars}/></button>
+                    <button id="btn-menu" onClick={alterarEstado}><FontAwesomeIcon className="fas fa-bars fa-2x"icon={faBars}/></button>
                 </div>
                 <div className="modal fade" id="menufloat">
                     <ul>
