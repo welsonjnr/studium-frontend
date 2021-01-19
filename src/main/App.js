@@ -1,12 +1,12 @@
 import React from 'react';
 
+import Rotas from './rotas'
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <a>
-          Learn React
-        </a>
+          <Rotas/>
       </header>
     </div>
   );

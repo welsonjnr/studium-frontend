@@ -4,12 +4,11 @@ import ReactDOM from 'react-dom';
 import Sidebar from './components/sidebar/sidebar.js'
 import CardBook from './components/cardbook/cardbook.js'
 import TextBox from './components/textbox/textbox.js'
+import App from './main/App'
 
 ReactDOM.render(
   <React.StrictMode>
     <Sidebar />
-    <CardBook title="Nome do Livro"/>
-    <TextBox type="email" id="idEmail" placeholder="Email"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
