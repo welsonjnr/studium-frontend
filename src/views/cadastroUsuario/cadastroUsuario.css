@@ -1,0 +1,13 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: #383838;
+}
+
+.titulo{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.form-control{
+    margin-bottom: 30px;
+}

@@ -3,18 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { render } from 'react-dom';
 import TextBox from '../textbox/textbox.js'
 
-import './cardbook.css';
+import './card.css';
 
-class CardBook extends React.Component{
+class Card extends React.Component{
 
 render(){
     return(
     <div className="container">
         <div className="row">
-            <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">{this.props.title}</h5>       
-                    <h6 class="card-subtitle mb-2">{this.props.children}</h6>
+            <div className="card mb-0" style={ {width: '18rem'} }>
+                <div className="card-body formCad">
+                    <h5 className="card-title titulo">{this.props.title}</h5>
+                    {this.props.children}       
                 </div>
             </div>
         </div>
@@ -23,4 +23,4 @@ render(){
     }
 }
 
-export default CardBook;
+export default Card;

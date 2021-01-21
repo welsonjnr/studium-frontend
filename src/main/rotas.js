@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch, HashRouter } from 'react-router-dom'
 
-import CardBook from '../components/cardbook/cardbook.js'
+import CardBook from '../components/card/card.js'
 
 
 function Rotas(){
