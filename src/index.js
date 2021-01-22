@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 //import App from './App';
 import Sidebar from './components/sidebar/sidebar'
 import CadastroUsuario from './views/cadastroUsuario/cadastroUsuario.js'
+import CadastroLivro from './views/cadastroLivro/cadastroLivro'
 import Card from './components/card/card'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <CadastroUsuario/>
+    <CadastroLivro/>
   </React.StrictMode>,
   document.getElementById('root')
 );
