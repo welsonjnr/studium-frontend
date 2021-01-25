@@ -51,21 +51,19 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
-li{
+.li-sidebar{
     display: flex;
     padding: 18px;
     list-style: none;
-
-    
 }
 
 
-li:hover{
+.li-sidebar:hover{
     background-color: rgb(33, 33, 51);
     transition: 0.5s;
 }
 
-ul{
+.ul-sidebar{
     padding-inline-start: 0px;
     margin-top: 0px;
     width: 175px;

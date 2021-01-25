@@ -5,8 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './cadastroUsuario.css'
 
 import Card from '../../components/card/card'
+import ClientsService from '../../app/service/clientService'
+import {mensagemErro, mensagemSucesso} from '../../components/toastr/toastr'
 
-import axios from 'axios'
 
 class CadastroUsuario extends React.Component{
 
@@ -19,9 +20,13 @@ class CadastroUsuario extends React.Component{
         period: ''
     }
 
+    constructor(){
+        super();
+        this.service = new ClientsService();
+    }
+
     cadastrarUsuario = () => {
-        axios
-        .post('http://localhost:8080/clients',{
+        this.service.cadastrarClient({
             name: this.state.name,
             cpf: this.state.cpf,
             email: this.state.email,
@@ -31,7 +36,7 @@ class CadastroUsuario extends React.Component{
         }).then(response => {
             console.log(response)
         }).catch(erro => {
-            console.log(erro.response)
+            mensagemErro('Não Cadastrado, Verifique as informações')
         })
     }
 

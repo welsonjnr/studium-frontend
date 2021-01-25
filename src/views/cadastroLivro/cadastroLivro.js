@@ -6,7 +6,7 @@ import './cadastroLivro.css'
 
 import Card from '../../components/card/card'
 
-import axios from 'axios'
+import BookService from '../../app/service/bookService'
 
 class CadastroLivro extends React.Component{
 
@@ -18,9 +18,13 @@ class CadastroLivro extends React.Component{
         category: ''
     }
 
-    cadastrarUsuario = () => {
-        axios
-        .post('http://localhost:8080/books',{
+    constructor(){
+        super();
+        this.service = new BookService();
+    }
+
+    cadastrarLivro = () => {
+        this.service.cadastrarBook({
             name: this.state.name,
             author: this.state.author,
             edition: this.state.edition,
@@ -29,7 +33,7 @@ class CadastroLivro extends React.Component{
         }).then(response => {
             console.log(response)
         }).catch(erro => {
-            console.log(erro.response)
+            console.log(erro)
         })
     }
 
@@ -63,7 +67,7 @@ class CadastroLivro extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <button onClick={this.cadastrarUsuario} type="button" className="btn btn-primary">Cadastrar</button>
+                    <button onClick={this.cadastrarLivro} type="button" className="btn btn-primary">Cadastrar</button>
                </Card>
             </div>
         )
