@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './cadastroUsuario.css'
 
-import Card from '../../components/card/card'
-import ClientsService from '../../app/service/clientService'
-import {mensagemErro, mensagemSucesso} from '../../components/toastr/toastr'
+import Card from '../../../components/card/card'
+import ClientsService from '../../../app/service/clientService'
+import {mensagemErro, mensagemSucesso} from '../../../components/toastr/toastr'
 
 
 class CadastroUsuario extends React.Component{
@@ -25,18 +25,48 @@ class CadastroUsuario extends React.Component{
         this.service = new ClientsService();
     }
 
+    validar(){
+        const msgs = []
+
+        if(!this.state.name){
+            msgs.push('O campo nome é obrigatório!')
+        }
+
+        if(!this.state.cpf){
+            msgs.push('O campo CPF é obrigatório!')
+        }
+
+        if(!this.state.email){
+            msgs.push('Verifique o campo Email!')
+        }
+
+        return msgs;
+        }
+
     cadastrarUsuario = () => {
-        this.service.cadastrarClient({
+        const msgs = this.validar();
+
+        if(msgs && msgs.length > 0){
+            msgs.forEach( (msg, index) => {
+                mensagemErro(msg)
+            })
+            return false
+        }
+
+        const usuario = {
             name: this.state.name,
             cpf: this.state.cpf,
             email: this.state.email,
             course: this.state.course,
             institution: this.state.institution,
             period: this.state.period
-        }).then(response => {
-            console.log(response)
-        }).catch(erro => {
-            mensagemErro('Não Cadastrado, Verifique as informações')
+        }
+
+        this.service.cadastrarClient(usuario)  
+        .then( response => {
+            mensagemSucesso("Cliente Cadastrado com Sucesso!")
+        }).catch(error => {
+            mensagemErro("Verifique as Informações!")
         })
     }
 

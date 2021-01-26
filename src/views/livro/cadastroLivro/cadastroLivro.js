@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './cadastroLivro.css'
 
-import Card from '../../components/card/card'
+import Card from '../../../components/card/card'
 
-import BookService from '../../app/service/bookService'
+import BookService from '../../../app/service/bookService'
 
 class CadastroLivro extends React.Component{
 

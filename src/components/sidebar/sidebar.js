@@ -25,7 +25,7 @@ class Sidebar extends React.Component{
                 <div id="menu" >
                     <button id="btn-menu" onClick={alterarEstado}><FontAwesomeIcon className="fas fa-bars fa-2x"icon={faBars}/></button>
                 </div>
-                <div className="modal fade" id="menufloat">
+                <div id="menufloat">
                     <ul className="ul-sidebar">
                         <li className="li-sidebar">Home</li>
                         <li className="li-sidebar">Minha conta</li>
