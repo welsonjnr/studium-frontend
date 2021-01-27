@@ -9,7 +9,7 @@ import BookService from '../../app/service/bookService'
 import './telaPrincipal.css'
 
 
-class telaPrincipal extends React.Component {
+class TelaPrincipal extends React.Component {
 
     state = {
         name: '',
@@ -43,20 +43,18 @@ class telaPrincipal extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="card card-body-book">
-                    <div className="card-title"> {this.state.name}</div>
-                    <div className="card-text position-static">
-                        <p className="format-font card-book-text">Autor: {this.state.author}</p>
-                        <p className="format-font card-book-text">Edição: {this.state.edition}</p>
-                        <p className="format-font card-book-text">Status: {this.state.bookStatus}</p>
-                        <p className="format-font card-book-text">Quantidade: {this.state.amount}</p>
-                        <p className="format-font card-book-text">Categoria: {this.state.category}</p>
-                    </div>
+            <div className="card card-body-book">
+                <div className="card-title"> {this.state.name}</div>
+                <div className="card-text position-static">
+                    <p className="format-font card-book-text">Autor: {this.state.author}</p>
+                    <p className="format-font card-book-text">Edição: {this.state.edition}</p>
+                    <p className="format-font card-book-text">Status: {this.state.bookStatus}</p>
+                    <p className="format-font card-book-text">Quantidade: {this.state.amount}</p>
+                    <p className="format-font card-book-text">Categoria: {this.state.category}</p>
                 </div>
             </div>
         )
     }
 }
 
-export default telaPrincipal;
+export default TelaPrincipal;

@@ -5,6 +5,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import logo from '../../imgs/logomarca.jpg'
 
+
+
 class Sidebar extends React.Component{
 
     render(){
@@ -27,10 +29,12 @@ class Sidebar extends React.Component{
                 </div>
                 <div id="menufloat">
                     <ul className="ul-sidebar">
-                        <li className="li-sidebar">Home</li>
+                        <li className="li-sidebar">
+                            <a className="nav-link" href="#/home">Home</a>
+                        </li>
                         <li className="li-sidebar">Minha conta</li>
-                        <li className="li-sidebar">Cadastrar Livro</li>
-                        <li className="li-sidebar">Cadastrar Usuário</li>
+                        <li className="li-sidebar">Livro</li>
+                        <li className="li-sidebar">Usuário</li>
                     </ul>
                 </div>
             </div>
