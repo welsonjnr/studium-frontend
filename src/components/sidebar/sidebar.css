@@ -15,7 +15,7 @@ body{
     margin: 25px;
 }
 
-#menu{
+.menu{
     display: flexbox;
     float: right;
     margin: 25px;
@@ -35,8 +35,11 @@ body{
     src:"https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet";
 }
 
-#menufloat{
-    display: none;
+.modal-menu{
+    background: #000000;
+}
+
+.menufloat{
     color: white;
     float: right;
     margin: 100px 20px;
