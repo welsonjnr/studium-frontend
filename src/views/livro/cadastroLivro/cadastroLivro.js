@@ -39,7 +39,6 @@ class CadastroLivro extends React.Component{
 
     render(){
         return(
-            <div className="container">
                <Card title="CADASTRO DE LIVRO" className="formLivro">
                     <div className="row">
                         <div className="col-lg-12">
@@ -69,7 +68,6 @@ class CadastroLivro extends React.Component{
                     </div>
                     <button onClick={this.cadastrarLivro} type="button" className="btn btn-primary">Cadastrar</button>
                </Card>
-            </div>
         )
     }
 }

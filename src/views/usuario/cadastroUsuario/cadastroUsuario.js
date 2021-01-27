@@ -7,7 +7,7 @@ import './cadastroUsuario.css'
 import Card from '../../../components/card/card'
 import ClientsService from '../../../app/service/clientService'
 import {mensagemErro, mensagemSucesso} from '../../../components/toastr/toastr'
-
+import { withRouter } from 'react-router-dom'
 
 class CadastroUsuario extends React.Component{
 
@@ -65,6 +65,7 @@ class CadastroUsuario extends React.Component{
         this.service.cadastrarClient(usuario)  
         .then( response => {
             mensagemSucesso("Cliente Cadastrado com Sucesso!")
+            this.props.history.push('/home')
         }).catch(error => {
             mensagemErro("Verifique as Informações!")
         })
@@ -72,7 +73,6 @@ class CadastroUsuario extends React.Component{
 
     render(){
         return(
-            <div className="container">
                <Card title="CADASTRO DE USUÁRIO" className="formUsuario">
                     <div className="row">
                         <div className="col-lg-12">
@@ -105,9 +105,8 @@ class CadastroUsuario extends React.Component{
                     </div>
                     <button onClick={this.cadastrarUsuario} type="button" className="btn btn-primary">Cadastrar</button>
                </Card>
-            </div>
         )
     }
 }
 
-export default CadastroUsuario;
+export default withRouter( CadastroUsuario );
