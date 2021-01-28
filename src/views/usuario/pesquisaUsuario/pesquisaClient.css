@@ -5,10 +5,19 @@
 .card-header{
     font-family: 'Montserrat', sans-serif;
     color: #383838;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.form-control{
+.input-pesquisa{
     margin-top: 1.5rem;
     margin-left: 2rem;
+}
+
+.card-header{
+    background-color: #aefdec;
+}
+
+.btn-pesquisa{
+    float: right;
 }

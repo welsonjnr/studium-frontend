@@ -11,10 +11,6 @@ import 'bootstrap/js/src/modal'
 class Sidebar extends React.Component{
 
     render(){
-        function fecharModal(e, destino){
-                e.preventDefault();
-            }
-
         return(
             <div id="main">
                 <div id="logo"> <img src={logo} alt="Alguma coisa"/> </div>  
