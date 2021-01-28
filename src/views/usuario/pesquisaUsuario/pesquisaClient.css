@@ -4,18 +4,16 @@
 
 .card-header{
     font-family: 'Montserrat', sans-serif;
-    color: #383838;
+    color: white;
     font-size: 20px;
     font-weight: bold;
+    background-color: #54595e;
+    letter-spacing: 1px;
 }
 
 .input-pesquisa{
     margin-top: 1.5rem;
     margin-left: 2rem;
-}
-
-.card-header{
-    background-color: #aefdec;
 }
 
 .btn-pesquisa{
