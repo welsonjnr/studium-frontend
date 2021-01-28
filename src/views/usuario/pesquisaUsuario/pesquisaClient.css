@@ -1,0 +1,14 @@
+.mt-n1{
+    margin-top: 10rem;
+}
+
+.card-header{
+    font-family: 'Montserrat', sans-serif;
+    color: #383838;
+    font-weight: 300;
+}
+
+.form-control{
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+}
