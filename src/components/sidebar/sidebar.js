@@ -20,7 +20,7 @@ class Sidebar extends React.Component{
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="menuFloat">
-                                <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Home</a></div>
+                                <div className="li-sidebar"><a className="nav-link" href="#/home" data-dismiss="modal">Home</a></div>
                                 <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Minha Conta</a></div>
                                 <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Livro</a></div>
                                 <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Usuário</a></div>
@@ -29,19 +29,6 @@ class Sidebar extends React.Component{
                         </div>
                     </div>
                 </div>
-
-                   {/* <div id="menu" >
-                    <button id="btn-menu" data-target=".modal-menu"><FontAwesomeIcon className="fas fa-bars fa-2x"icon={faBars}/></button>
-                </div>
-                <div id="modal fade modal-menu">
-    
-                    <ul className="ul-sidebar">
-                        <li className="li-sidebar">  </li>
-                        <li className="li-sidebar">Minha conta</li>
-                        <li className="li-sidebar">Livro</li>
-                        <li className="li-sidebar">Usuário</li>
-                    </ul>
-                </div>*/}
             </div>
         )
     }

@@ -25,24 +25,41 @@ class PesquisaClient extends React.Component {
         const clienteFiltro = {
             nome: this.state.nome
         }
-
         this.service
             .pesquisarClientes(clienteFiltro)
             .then(resposta => {
                 mensagemSucesso('Clientes carregados!')
                 this.setState({ clientes: resposta.data  })
+                console.log(this.state.clientes)
             }).catch( error => {
                 mensagemErro('Não foi possível carregar os dados!')
             })
+    }
 
+    editar = (id) => {
+        
+    } 
+
+    deletar = (cliente) => {
+        this.service
+        .deletar(cliente.id)
+        .then(response => {
+            const clientes = this.state.clientes;
+            const index = clientes.indexOf(cliente)
+            clientes.splice(index, 1)
+            this.setState(clientes)
+
+            mensagemSucesso('Cliente excluido com sucesso!')
+        }).catch(error => {
+            if(error = 500){
+                mensagemErro('Não é possível excluir, ainda há empréstimos no nome do cliente')
+            }else{
+            mensagemErro('Não foi possível excluir o cliente')
+            }
+        })
     }
 
     render() {
-
-        const clients = [
-            {id: '1', nome: 'ASDFGHJ', email:'sadfasd@gmail.com', curso:'Analista', institution:'UEG', period: 2}
-        ]
-
         return (
         <div className="pt-5">
             <div className="card card-pesquisa">
@@ -60,7 +77,7 @@ class PesquisaClient extends React.Component {
                 <div className="row pt-4">
                     <div className="col-md-12">
                         <div className="bs-component">
-                            <TablePesquisaCliente pesquisaClient={clients}/>
+                            <TablePesquisaCliente pesquisaClient={this.state.clientes} deleteAction={this.deletar} editAction={this.editar}/>
                         </div>
                     </div>
                 </div>

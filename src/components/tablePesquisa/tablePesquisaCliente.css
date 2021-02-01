@@ -1,0 +1,12 @@
+#btn-menu{
+    border: none;
+    outline: none;
+}
+
+.btn-tamanho-default{
+    width: 55px;
+}
+
+.btn-acao{
+    margin-left: 10px;
+}

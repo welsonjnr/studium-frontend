@@ -3,13 +3,15 @@ import ApiService from '../apiService'
 export default class pesquisaClientService extends ApiService{
 
     constructor(){
-        super('/clients')
+        super()
     }
 
-    pesquisarClientes(clienteFiltro){
-        let params = `?nome=${clienteFiltro.nome}`
-    
-
+    pesquisarClientes(){
+        let params = `/clients`
         return this.get(params)
+    }
+
+    deletar(id){
+        return this.delete(`/clients/${id}`)
     }
 }

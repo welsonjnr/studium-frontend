@@ -1,6 +1,8 @@
 import React from 'react'
-
+import { faEdit, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './tablePesquisaCliente.css'
 
 export default props => {
 
@@ -8,12 +10,20 @@ export default props => {
         return(
             <tr key={clients.id}>
                <td>{clients.id}</td>
-               <td>{clients.nome}</td>
+               <td>{clients.name}</td>
                <td>{clients.email}</td>
-               <td>{clients.curso}</td> 
+               <td>{clients.course}</td> 
                <td>{clients.institution}</td>
                <td>{clients.period}</td>
-               <td></td>
+               <td>{clients.status}</td>
+               <td>
+                    <button type="button" className="btn btn-primary btn-tamanho-default"
+                    onClick={e => props.editAction(clients.id)}>
+                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faEdit}/></button>
+                    <button type="button" className="btn btn-danger btn-acao"
+                    onClick={e => props.deleteAction(clients)}>
+                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faTrashAlt}/></button>
+               </td>
             </tr>
         )
     })
@@ -28,6 +38,7 @@ export default props => {
                     <th scope="col">Curso</th>
                     <th scope="col">Instituição</th>
                     <th scope="col">Período</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
