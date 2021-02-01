@@ -1,5 +1,5 @@
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {fabars, faEdit, faTrashAlt} from "@fortawesome/free-regular-svg-icons"
+import {fabars, faEdit, faTrashAlt, faArrowAltCircleDown, faUndo, faSync} from "@fortawesome/free-regular-svg-icons"
 
 
-library.add(fabars, faEdit, faTrashAlt)
+library.add(fabars, faEdit, faTrashAlt, faArrowAltCircleDown, faUndo, faSync)

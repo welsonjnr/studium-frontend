@@ -63,7 +63,7 @@ class PesquisaClient extends React.Component {
         return (
         <div className="pt-5">
             <div className="card card-pesquisa">
-                <div className="card-header">PESQUISA DE CLIENTES</div>
+                <div className="card-header">Pesquisa de clientes</div>
                 <div className="row">
                     <div className="col-md-11">
                         <div className="bs-component">
