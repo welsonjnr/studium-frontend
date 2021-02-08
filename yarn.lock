@@ -8539,6 +8539,16 @@ pretty-format@^26.4.2:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
+primeicons@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-4.1.0.tgz#19eaef8ef5594b0006358ae64e738d03e167c9bb"
+  integrity sha512-uEv2pSPk1zQCfaB2VgnUfnUxxlGryYi+5rbdxmZBBt5v9S/pscIQYS5YDLxsQZ7D9jn5c76+Tx5wX/2J1nK6sA==
+
+primereact@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/primereact/-/primereact-6.0.2.tgz#8ec35219674431d8658990b548e4c1889773e037"
+  integrity sha512-u0uQxq26QmX13lVmc7Bz8CeJRwJG2DWf9Q4U/FRezDBKefzYXHZbPSktmLOubZY8atMmZS8z0XesPOrpRhPhVA==
+
 private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"

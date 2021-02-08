@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './tablePesquisaCliente.css'
 
+import {Dialog} from 'primereact/dialog'
+
 export default props => {
 
     const rows = props.pesquisarLivros.map( books => {
