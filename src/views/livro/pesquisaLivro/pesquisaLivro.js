@@ -24,9 +24,6 @@ class PesquisaBooks extends React.Component {
         nome:'',
         showConfirmDialog: false,
         bookDeletar: {},
-        showBookCadastroDialog: false,
-        bookCadastrar: {},
-        cadastrarLivroConfirmModal: '',
         books : []
     }
 
@@ -54,22 +51,13 @@ class PesquisaBooks extends React.Component {
         
     } 
 
-    abrir
-
+    
     abrirConfirmacao = (book) => {
         this.setState({showConfirmDialog: true, bookDeletar: book})
     }
 
     cancelarDelecao = () => {
         this.setState({showConfirmDialog: false, bookDeletar: {}})
-    }
-
-    cadastrarLivro = () => {
-        this.setState({showBookCadastroDialog: true})
-    }
-
-    fecharCadastroLivro = () => {
-        this.setState({showBookCadastroDialog: false, books: books})
     }
 
     deletar = () => {
@@ -131,9 +119,6 @@ class PesquisaBooks extends React.Component {
                             Deseja mesmo excluir o livro?            
                         </Dialog>
                     </div> 
-                    <div className="modal fade" id="cadastro-livro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden={this.state.showBookCadastroDialog}>
-                        <CadastroLivro/>  
-                    </div>
                 </div>
             </div>
         </div>
