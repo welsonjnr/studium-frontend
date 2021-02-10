@@ -18,8 +18,9 @@ class CadastroLivro extends React.Component{
         category: ''
     }
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        this.props.condicaoDoDialog;
         this.service = new BookService();
     }
 
@@ -67,7 +68,10 @@ class CadastroLivro extends React.Component{
                         </div>
                     </div>
                     <button onClick={this.cadastrarLivro} type="button" className="btn btn-primary">Cadastrar</button>
-                    <button type="button" className="btn btn-danger">Cancelar</button>
+                    <button 
+                    onClick={this.props.setStateFecharCadastroLivro()}
+                    type="button" 
+                    className="btn btn-danger">Cancelar</button>
                </Card>
         )
     }
