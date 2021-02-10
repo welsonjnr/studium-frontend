@@ -24,9 +24,12 @@ class PesquisaBooks extends React.Component {
         nome:'',
         showConfirmDialog: false,
         bookDeletar: {},
+<<<<<<< HEAD
         showBookCadastroDialog: false,
         bookCadastrar: {},
         cadastrarLivroConfirmModal: false,
+=======
+>>>>>>> 6f91b8c23c1c817515f506c562ae1507d636608d
         books : []
     }
 
@@ -54,8 +57,7 @@ class PesquisaBooks extends React.Component {
         
     } 
 
-    abrir
-
+    
     abrirConfirmacao = (book) => {
         this.setState({showConfirmDialog: true, bookDeletar: book})
     }
@@ -64,6 +66,7 @@ class PesquisaBooks extends React.Component {
         this.setState({showConfirmDialog: false, bookDeletar: {}})
     }
 
+<<<<<<< HEAD
     cadastrarLivro = () => {
         this.setState({showBookCadastroDialog: true})
     }
@@ -72,6 +75,8 @@ class PesquisaBooks extends React.Component {
         this.setState({showBookCadastroDialog: false})
     }
 
+=======
+>>>>>>> 6f91b8c23c1c817515f506c562ae1507d636608d
     deletar = () => {
         this.service
         .deletar(this.state.bookDeletar.id)
@@ -131,9 +136,12 @@ class PesquisaBooks extends React.Component {
                             Deseja mesmo excluir o livro?            
                         </Dialog>
                     </div> 
+<<<<<<< HEAD
                     <div className="modal fade" id="cadastro-livro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden={this.state.showBookCadastroDialog}>
                         <CadastroLivro condicaoDoDialog={this.state.showBookCadastroDialog} setStateFecharCadastroLivro={this.fecharCadastroLivro}/>  
                     </div>
+=======
+>>>>>>> 6f91b8c23c1c817515f506c562ae1507d636608d
                 </div>
             </div>
         </div>

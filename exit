@@ -1,0 +1,127 @@
+[33mcommit 6f91b8c23c1c817515f506c562ae1507d636608d[m[33m ([m[1;31morigin/work-branch[m[33m)[m
+Author: welsonjnr <welsongt9@live.com>
+Date:   Tue Feb 9 14:07:08 2021 -0300
+
+    Refatoração da tela cadastroLivro
+
+[33mcommit 76c73337c05ba0f652397ba63f6e3f8caf22b8e9[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Feb 8 01:05:24 2021 -0300
+
+    Confirmação da deleção e abertura de modal para cadastro de livro
+
+[33mcommit 0eb67922d42774f00de9b8ba958cfaf449205ea4[m
+Author: welsonjnr <welsongt9@live.com>
+Date:   Mon Feb 1 14:02:31 2021 -0300
+
+    Implementação das tabelas de empréstimos e livros
+
+[33mcommit 3e8e658b053c742feb4adbf6b3c0fa9c35c73f6d[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Feb 1 08:08:09 2021 -0300
+
+    Criação de edição e delete e tabela padrão
+
+[33mcommit c1bb7b5e5eba2bc47d14d03563c0f85491e67b6e[m
+Author: welsonjnr <welsongt9@live.com>
+Date:   Thu Jan 28 15:07:32 2021 -0300
+
+    Edição de Cores
+
+[33mcommit 87518b38429004b3024becb957412a21cb61aefd[m
+Author: welsonjnr <welsongt9@live.com>
+Date:   Thu Jan 28 14:55:12 2021 -0300
+
+    Personalização da Pesquisa de Clientes e Envio de Parâmetros para o Back End
+
+[33mcommit 72eb1fee0a74bc7734ee9e89400e385477c08c6d[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Thu Jan 28 00:58:58 2021 -0300
+
+    Criação da tela de Pesquisa e Criação das primeira table
+
+[33mcommit 195491e77a37428afb2f3c382ff5b0fdec7d85f2[m
+Author: welsonjnr <welsongt9@live.com>
+Date:   Wed Jan 27 15:34:59 2021 -0300
+
+    Arrumando o componente Sidebar
+
+[33mcommit 6049b8737664a4d8672f8edf90914ece1fce4c78[m
+Merge: eda8f66 ad67595
+Author: welsonjnr <welsongt9@live.com>
+Date:   Wed Jan 27 13:05:33 2021 -0300
+
+    Para fazer o merge
+
+[33mcommit ad67595d3b8bb78531321f6a40e243fe7dacb384[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Wed Jan 27 00:02:35 2021 -0300
+
+    Implementação das Rotas, Melhoria do Código e Refatoramento das Pastas
+
+[33mcommit eda8f664ef18f320c07133d1ee24989a18809669[m
+Author: welsonjnr <welsongt9@live.com>
+Date:   Tue Jan 26 13:41:16 2021 -0300
+
+    Commit do Serviço
+
+[33mcommit f67459f733f6e417b566a81edb43d037d9489f63[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Tue Jan 26 00:55:04 2021 -0300
+
+    Criação de Mensagens, Validação de campos e Estrutura de Telas
+
+[33mcommit b3f0b2a04e40c8b0b008b0b43d57d6b21bcb6d49[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Jan 25 06:23:24 2021 -0300
+
+    Criação de Service, para API e CardBook
+
+[33mcommit 2abc9d4188b89566f3ac1da6bd8991bc88d662de[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Fri Jan 22 10:13:13 2021 -0300
+
+    Implementação do componente cadastroLivro.
+
+[33mcommit 0cacc66f14073c8c1e65193ea0745ae4229dc8fa[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Thu Jan 21 00:27:54 2021 -0300
+
+    Criação do formulário de Cadastro de Clientes
+
+[33mcommit 0b2452dd2d70bcf880f9fea66f27f42692345158[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Tue Jan 19 00:00:06 2021 -0300
+
+    Adicionando as rotas e criação de novos componentes
+
+[33mcommit ea20781d4eac195e7045b376b3a67c6253f64fe2[m
+Merge: 8487836 b530b98
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Jan 11 23:54:22 2021 -0300
+
+    Merge branch 'master' of github.com:welsonjnr/studium-frontend
+
+[33mcommit 84878360e752e84988b0cd1c2a68da2b13aa6501[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Jan 11 23:53:26 2021 -0300
+
+    Creation of textBox and cardBook Components
+
+[33mcommit b530b98bf4e5672b63ac4888162f9a946ab701e5[m
+Author: Welson Júnior <45244580+welsonjnr@users.noreply.github.com>
+Date:   Mon Jan 11 22:58:50 2021 -0300
+
+    Update README.md
+
+[33mcommit 63cc0b4eb819dd8c639ad579d0dbaeee51994b9d[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Jan 11 22:54:26 2021 -0300
+
+    Commit Inicial, com o sidebar feita
+
+[33mcommit df03e09ce68c0fee7936b9631209701f310800d6[m
+Author: Welson Júnior <welsongt9@live.com>
+Date:   Mon Dec 14 00:38:16 2020 -0300
+
+    Start Commit

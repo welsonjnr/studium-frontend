@@ -20,7 +20,7 @@ class Sidebar extends React.Component{
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="menuFloat">
-                                <div className="li-sidebar"><a className="nav-link" href="#/home" data-dismiss="modal">Home</a></div>
+                                <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Home</a></div>
                                 <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Minha Conta</a></div>
                                 <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Livro</a></div>
                                 <div className="li-sidebar"><a className="nav-link" href="#/home" data-dimiss="modal">Usuário</a></div>

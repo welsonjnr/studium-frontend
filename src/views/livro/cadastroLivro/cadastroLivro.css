@@ -11,3 +11,22 @@ body{
 .form-control{
     margin-bottom: 30px;
 }
+
+#cadastroLivro{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 15px 0px 15px 15px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#containerPrincipal{
+    padding-top: 25px;
+}
+
+#tituloTela{
+    text-align: center;
+    top: 4em;
+    left: 3%;
+    font-size: 50px;
+    font-weight: bolder;
+}

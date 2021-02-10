@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { withRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './cadastroLivro.css'
@@ -38,8 +39,18 @@ class CadastroLivro extends React.Component{
         })
     }
 
+    cancelarCadastroLivro() => {
+        
+    }
+
     render(){
         return(
+            <div className="container" id="containerPrincipal">
+            <div className="row" id="cadastroLivro">
+                <div className="col" id="tituloTela">
+                    CADASTRO DE LIVRO
+                </div>
+                <div className="col">
                <Card title="CADASTRO DE LIVRO" className="formLivro">
                     <div className="row">
                         <div className="col-lg-12">
@@ -73,8 +84,12 @@ class CadastroLivro extends React.Component{
                     type="button" 
                     className="btn btn-danger">Cancelar</button>
                </Card>
+               </div>
+            
+            </div>
+            </div>
         )
     }
 }
 
-export default CadastroLivro;
+export default withRouter(CadastroLivro);
