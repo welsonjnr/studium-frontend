@@ -1,9 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import '../../usuario/pesquisaUsuario/pesquisaClient.css'
-import SelectMenu from '../../../components/selectmenu/selectMenu'
 import TablePesquisaBooks from '../../../components/tablePesquisa/tablePesquisaBooks'
-import CadastrarLivro from '../cadastroLivro/cadastroLivro'
 
 import PesquisaBookService from '../../../app/service/pesquisaBookService'
 import {mensagemErro, mensagemSucesso} from '../../../components/toastr/toastr'
@@ -16,7 +14,6 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
-import CadastroLivro from '../cadastroLivro/cadastroLivro'
 
 class PesquisaBooks extends React.Component {
 
@@ -24,12 +21,6 @@ class PesquisaBooks extends React.Component {
         nome:'',
         showConfirmDialog: false,
         bookDeletar: {},
-<<<<<<< HEAD
-        showBookCadastroDialog: false,
-        bookCadastrar: {},
-        cadastrarLivroConfirmModal: false,
-=======
->>>>>>> 6f91b8c23c1c817515f506c562ae1507d636608d
         books : []
     }
 
@@ -57,26 +48,6 @@ class PesquisaBooks extends React.Component {
         
     } 
 
-    
-    abrirConfirmacao = (book) => {
-        this.setState({showConfirmDialog: true, bookDeletar: book})
-    }
-
-    cancelarDelecao = () => {
-        this.setState({showConfirmDialog: false, bookDeletar: {}})
-    }
-
-<<<<<<< HEAD
-    cadastrarLivro = () => {
-        this.setState({showBookCadastroDialog: true})
-    }
-
-    fecharCadastroLivro = () => {
-        this.setState({showBookCadastroDialog: false})
-    }
-
-=======
->>>>>>> 6f91b8c23c1c817515f506c562ae1507d636608d
     deletar = () => {
         this.service
         .deletar(this.state.bookDeletar.id)
@@ -94,6 +65,18 @@ class PesquisaBooks extends React.Component {
             mensagemErro('Não foi possível excluir o livro')
             }
         })
+    }
+
+    abrirConfirmacao = (book) => {
+        this.setState({showConfirmDialog: true, bookDeletar: book})
+    }
+
+    cancelarDelecao = () => {
+        this.setState({showConfirmDialog: false, bookDeletar: {}})
+    }
+
+    abrirCadastroLivro = () => {
+        this.props.history.push('/cadastro-livro')
     }
 
     render() {
@@ -117,7 +100,7 @@ class PesquisaBooks extends React.Component {
                                 id="inputNameBook" placeholder="Nome do Livro"/>
                         </div>
                         <button onClick={this.buscar} type="button" className="btn btn-success btn-pesquisa"> Buscar</button>
-                        <Button onClick={this.cadastrarLivro} data-toggle="modal" data-target="#cadastro-livro" className="pi pi-plus btn-pesquisa" style={ {marginRight: '20px', padding: '10px', width: '70px'} }/>
+                        <Button onClick={this.abrirCadastroLivro} className="pi pi-plus btn-pesquisa" style={ {marginRight: '20px', padding: '10px', width: '70px'} }/>
                     </div>
                 </div>
                 <div className="row pt-4">
@@ -136,12 +119,6 @@ class PesquisaBooks extends React.Component {
                             Deseja mesmo excluir o livro?            
                         </Dialog>
                     </div> 
-<<<<<<< HEAD
-                    <div className="modal fade" id="cadastro-livro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden={this.state.showBookCadastroDialog}>
-                        <CadastroLivro condicaoDoDialog={this.state.showBookCadastroDialog} setStateFecharCadastroLivro={this.fecharCadastroLivro}/>  
-                    </div>
-=======
->>>>>>> 6f91b8c23c1c817515f506c562ae1507d636608d
                 </div>
             </div>
         </div>

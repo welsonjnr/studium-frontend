@@ -11,3 +11,7 @@ body{
 .form-control{
     margin-bottom: 30px;
 }
+
+.formUsuario{
+    height: 100px;
+}
