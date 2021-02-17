@@ -17,7 +17,8 @@ class CadastroUsuario extends React.Component {
         email: '',
         course: '',
         institution: '',
-        period: ''
+        period: '',
+        atualizando: false
     }
 
     constructor() {
@@ -25,33 +26,21 @@ class CadastroUsuario extends React.Component {
         this.service = new ClientsService();
     }
 
-    validar() {
-        const msgs = []
-
-        if (!this.state.name) {
-            msgs.push('O campo nome é obrigatório!')
+    componentDidMount(){
+        const params = this.props.match.params.id;
+        if(params){
+            this.service.obterClientePorId(params)
+            .then(response => {
+                console.log(response)
+                this.setState({...response.data, atualizando: true})
+            })
+            .catch(error => {
+                console.log(error)
+            })
         }
-
-        if (!this.state.cpf) {
-            msgs.push('O campo CPF é obrigatório!')
-        }
-
-        if (!this.state.email) {
-            msgs.push('Verifique o campo Email!')
-        }
-
-        return msgs;
     }
 
     cadastrarUsuario = () => {
-        const msgs = this.validar();
-
-        if (msgs && msgs.length > 0) {
-            msgs.forEach((msg, index) => {
-                mensagemErro(msg)
-            })
-            return false
-        }
 
         const usuario = {
             name: this.state.name,
@@ -60,6 +49,14 @@ class CadastroUsuario extends React.Component {
             course: this.state.course,
             institution: this.state.institution,
             period: this.state.period
+        }
+
+        try{
+            this.service.validar(usuario);
+        }catch(erro){
+            const mensagens = erro.mensagens;
+            mensagens.forEach(msg => mensagemErro(msg))
+            return false
         }
 
         this.service.cadastrarClient(usuario)
@@ -71,6 +68,27 @@ class CadastroUsuario extends React.Component {
             })
     }
 
+    atualizarCliente = () => {
+        const cliente = {
+            id: this.state.id,
+            name: this.state.name,
+            cpf: this.state.cpf,
+            email: this.state.email,
+            course: this.state.course,
+            institution: this.state.institution,
+            period: this.state.period
+        }
+
+        this.service.atualizarCliente(cliente)
+        .then(response => {
+            mensagemSucesso("Cliente atualizado com sucesso")
+            this.props.history.push('/pesquisa-cliente')
+        }).catch(erro => {
+            mensagemErro("Verifique o erro")
+        })
+
+    }
+
     cancelarCadastroCliente = () => {
         this.props.history.push('/pesquisa-cliente')
     }
@@ -80,10 +98,10 @@ class CadastroUsuario extends React.Component {
             <div className="container" id="containerPrincipal">
                 <div className="row" id="cadastroLivro">
                     <div className="col" id="tituloTela">
-                        CADASTRO DE CLIENTE
+                        {this.state.atualizando ? 'ATUALIZAÇÃO DE CLIENTE' : 'CADASTRO DE CLIENTE'}
                     </div>
                     <div className="col">
-                    <Card title="CADASTRO DE CLIENTE">
+                    <Card title={this.state.atualizando ? 'ATUALIZAÇÃO DE CLIENTE' : 'CADASTRO DE CLIENTE'}>
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="bs-component">
@@ -114,7 +132,11 @@ class CadastroUsuario extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button onClick={this.cadastrarUsuario} style={{marginRight: '8px'}} type="button" className="btn btn-primary">Cadastrar</button>
+                        {this.state.atualizando?
+                        (<button onClick={this.atualizarCliente} style={{marginRight: '8px'}} type="button" className="btn btn-success">Atualizar</button>)
+                        : (
+                        <button onClick={this.cadastrarUsuario} style={{marginRight: '8px'}} type="button" className="btn btn-primary">Cadastrar</button>)
+                        }
                         <button onClick={this.cancelarCadastroCliente} type="button" className="btn btn-danger">Cancelar</button>
                     </Card>
                     </div>

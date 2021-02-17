@@ -4,8 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './tablePesquisaCliente.css'
 
-import {Dialog} from 'primereact/dialog'
-
 export default props => {
 
     const rows = props.pesquisarLivros.map( books => {
@@ -19,10 +17,10 @@ export default props => {
                <td>{books.amount}</td>
                <td>{books.category.name}</td>
                <td>
-                    <button type="button" className="btn btn-primary btn-tamanho-default"
+                    <button type="button" className="btn btn-primary btn-sm"
                     onClick={e => props.editAction(books.id)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faEdit}/></button>
-                    <button type="button" className="btn btn-danger btn-acao"
+                    <button type="button" className="btn btn-danger btn-acao btn-sm"
                     onClick={e => props.deleteAction(books)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faTrashAlt}/></button>
                </td>

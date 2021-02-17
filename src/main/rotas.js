@@ -16,9 +16,9 @@ function Rotas(){
             <Switch>
                 <Route path="/home" component={TelaPrincipal}/>
                 <Route path="/pesquisa-emprestimos" component={PesquisaLoans}/>
-                <Route path="/cadastro-cliente" component={CadastroUsuario}/>
+                <Route path="/cadastro-cliente/:id?" component={CadastroUsuario}/>
                 <Route path="/pesquisa-cliente" component={PesquisaClient}/>
-                <Route path="/cadastro-livro" component={CadastroLivro}/>
+                <Route path="/cadastro-livro/:id?" component={CadastroLivro}/>
                 <Route path="/pesquisa-livro" component={PesquisaBooks}/>
             </Switch>
         </HashRouter>

@@ -4,10 +4,17 @@ body{
     padding: 0;
  }
 
-#main{
+ .navbar{
+     padding-top: 22px;
+     justify-content: end;
+ }
+ 
+.nav-item{
+    margin-right: 5px;
+}
 
-    width: 100%;
-    height: 100%;
+.bg-light{
+    background-color: white!important;
 }
 
 #logo{
@@ -15,60 +22,16 @@ body{
     margin: 25px;
 }
 
-.menu{
-    display: flexbox;
-    float: right;
-    margin: 25px;
-}
 
-#btn-menu{
-    border: none;
-    outline: none;
-}
-
-#menu :hover{
-    background-color: darkgray;
-    transition: 0.5s;
-}
+.nav-item:hover{
+    background-color: #858383fa !important;
+    transition: 700ms;
+ }
 
 @font-face{
     src:"https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet";
 }
 
-.modal-menu{
-    background: #000000;
-}
-
-.menufloat{
-    color: white;
-    float: right;
-    margin: 100px 20px;
-    padding: 30px 0px 30px 30px;
-    position: relative;
-    width: 212px;
-    height: 218px;
-    background: #000000;
-    border-radius: 30px 0px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.li-sidebar{
-    display: flex;
-    padding: 18px;
-    list-style: none;
-}
-
-
-.li-sidebar:hover{
-    background-color: rgb(33, 33, 51);
-    transition: 0.5s;
-}
-
-.ul-sidebar{
-    padding-inline-start: 0px;
-    margin-top: 0px;
-    width: 175px;
-}
 
     
 

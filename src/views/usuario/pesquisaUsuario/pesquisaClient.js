@@ -1,7 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import './pesquisaClient.css'
-import SelectMenu from '../../../components/selectmenu/selectMenu'
 import TablePesquisaCliente from '../../../components/tablePesquisa/tablePesquisaCliente'
 
 import PesquisaClientService from '../../../app/service/pesquisaClientService'
@@ -45,7 +44,7 @@ class PesquisaClient extends React.Component {
     }
 
     editar = (id) => {
-        
+        this.props.history.push(`/cadastro-cliente/${id}`)
     } 
 
     deletar = () => {

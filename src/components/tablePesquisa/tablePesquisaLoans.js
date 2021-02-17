@@ -1,5 +1,5 @@
 import React from 'react'
-import { faEdit, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrashAlt, faArrowAltCircleDown, faUndo, faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './tablePesquisaCliente.css'
@@ -16,12 +16,20 @@ export default props => {
                <td>{loans.loanDay}</td>
                <td>{loans.status}</td>
                <td>
-                    <button type="button" className="btn btn-primary btn-tamanho-default"
+                    <button type="button" title="Devolver" 
+                    className="btn btn-success btn-sm" disabled={loans.status !== 'DEVOLVIDO' || loans !== 'CANCELADO'}
+                    onClick={e => props.editAction(loans.id)}>
+                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faArrowAltCircleDown}/></button>
+                    <button type="button" title="Renovar" 
+                    className="btn btn-dark btn-sm" disabled={loans.status !== 'DEVOLVIDO' || loans !== 'CANCELADO'}
+                    onClick={e => props.editAction(loans.id)}>
+                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faUndo}/></button>
+                    <button type="button" title="Editar" className="btn btn-primary btn-sm"
                     onClick={e => props.editAction(loans.id)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faEdit}/></button>
-                    <button type="button" className="btn btn-danger btn-acao"
+                    <button type="button" title="Cancelar" className="btn btn-danger btn-sm"
                     onClick={e => props.deleteAction(loans)}>
-                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faTrashAlt}/></button>
+                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faWindowClose}/></button>
                </td>
             </tr>
         )

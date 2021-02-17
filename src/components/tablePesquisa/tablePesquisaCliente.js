@@ -17,10 +17,10 @@ export default props => {
                <td>{clients.period}</td>
                <td>{clients.status}</td>
                <td>
-                    <button type="button" className="btn btn-primary btn-tamanho-default"
+                    <button type="button" className="btn btn-primary btn-tamanho-default btn-sm"
                     onClick={e => props.editAction(clients.id)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faEdit}/></button>
-                    <button type="button" className="btn btn-danger btn-acao"
+                    <button type="button" className="btn btn-danger btn-acao btn-sm"
                     onClick={e => props.deleteAction(clients)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faTrashAlt}/></button>
                </td>

@@ -16,7 +16,8 @@ class CadastroLivro extends React.Component {
         author: '',
         edition: '',
         amount: '',
-        category: ''
+        category: '',
+        atualizando: false
     }
 
     constructor() {
@@ -24,38 +25,21 @@ class CadastroLivro extends React.Component {
         this.service = new BookService();
     }
 
-    validar() {
-        const msgs = []
-
-        if(!this.state.name){
-            msgs.push('O campo nome é obrigatório!')
+    componentDidMount(){
+        const params = this.props.match.params.id;
+        if(params){
+            this.service.obterLivroPorId(params)
+            .then(response => {
+                this.setState({...response.data, atualizando: true})
+            })
+            .catch(error => {
+                console.log(error)
+            })
         }
-
-        if(!this.state.author){
-            msgs.push('O campo autor é obrigatório!')
-        }
-
-        if(!this.state.amount){
-            msgs.push('O campo da quantidade é obrigatório!')
-        }
-
-        if(!this.state.category){
-            msgs.push('O campo de categoria é obrigatório!')
-        }
-
-        return msgs;
     }
 
     cadastrarLivro = () => {
-        const msgs = this.validar();
-
-        if(msgs && msgs.length > 0){
-            msgs.forEach( (msg, index) => {
-                mensagemErro(msg)
-            })
-            return false
-        }
-
+        
         const livro = {
             name: this.state.name,
             author: this.state.author,
@@ -64,10 +48,40 @@ class CadastroLivro extends React.Component {
             category: this.state.category
         }
 
+        try{
+            this.service.validar(livro);
+        }catch(erro){
+            const mensagens = erro.mensagens;
+            mensagens.forEach(msg => mensagemErro(msg))
+            return false
+        }
+
         this.service.cadastrarBook(livro)
         .then(response => {
             console.log(response)
             mensagemSucesso("Livro Cadastrado com Sucesso!")
+            this.props.history.push('/pesquisa-livro')
+        }).catch(erro => {
+            mensagemErro("Verifique as Informações")
+            console.log(erro)
+        })
+    }
+
+    atualizarLivro = () => {
+
+        const livro = {
+            id: this.state.id,
+            name: this.state.name,
+            author: this.state.author,
+            edition: this.state.edition,
+            amount: this.state.amount,
+            category: this.state.category
+        }
+
+        this.service.atualizarLivro(livro)
+        .then(response => {
+            console.log(response)
+            mensagemSucesso("Livro atualizado com sucesso!")
             this.props.history.push('/pesquisa-livro')
         }).catch(erro => {
             mensagemErro("Verifique as Informações")
@@ -84,10 +98,10 @@ class CadastroLivro extends React.Component {
             <div className="container" id="containerPrincipal">
                 <div className="row" id="cadastroLivro">
                     <div className="col" id="tituloTela">
-                        CADASTRO DE LIVRO
+                        {this.state.atualizando ? 'ATUALIZAÇÃO DE LIVRO' : 'CADASTRO DE LIVRO'}
                     </div>
                     <div className="col">
-                        <Card title="CADASTRO DE LIVRO" className="formLivro">
+                        <Card title={this.state.atualizando ? 'ATUALIZAÇÃO DE LIVRO' : 'CADASTRO DE LIVRO'} className="formLivro">
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="bs-component">
@@ -114,7 +128,14 @@ class CadastroLivro extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <button onClick={this.cadastrarLivro} style={{marginRight: '8px'}} type="button" className="btn btn-primary">Cadastrar</button>
+                            {this.state.atualizando ? 
+                                (<button onClick={this.atualizarLivro} style={{marginRight: '8px'}} type="button" className="btn btn-success">Atualizar</button>
+                                ) : (
+                                <button onClick={this.cadastrarLivro} style={{marginRight: '8px'}} type="button" className="btn btn-primary">Cadastrar</button>
+                                )
+                            }
+                            
+                            
                             <button onClick={this.cancelarCadastroLivro} type="button" className="btn btn-danger">Cancelar</button>
                         </Card>
                     </div>

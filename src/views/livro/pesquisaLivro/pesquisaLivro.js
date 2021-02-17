@@ -38,14 +38,13 @@ class PesquisaBooks extends React.Component {
             .then(resposta => {
                 mensagemSucesso('Livros carregados!')
                 this.setState({ books: resposta.data  })
-                console.log(this.state.books)
             }).catch( error => {
                 mensagemErro('Não foi possível carregar os dados!')
             })
     }
 
     editar = (id) => {
-        
+        this.props.history.push(`/cadastro-livro/${id}`)
     } 
 
     deletar = () => {
@@ -76,7 +75,7 @@ class PesquisaBooks extends React.Component {
     }
 
     abrirCadastroLivro = () => {
-        this.props.history.push('/cadastro-livro')
+        this.props.history.push(`/cadastro-livro`)
     }
 
     render() {

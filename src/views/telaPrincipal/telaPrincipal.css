@@ -9,11 +9,12 @@
     flex-grow: 0;
     margin: 0px 15px;
 
-
-    width: 220px;
-    height: 158px;
+    margin-bottom: 15px;
+    width: 270px;
+    height: 178px;
     align-items: flex-start;
-    padding: 25px;
+    padding-left: 15px;
+    padding-top: 10px;
     background: #FFFFFF;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -28,4 +29,12 @@
     flex-grow: 0;
     margin: 0px 5px;
     padding-bottom: 1px;
+}
+
+#btn-emprestimo{
+    font-weight: 600;
+    color: #383838;
+    margin-top: 5px;
+    margin-left: 30%;
+    padding: 5px;
 }

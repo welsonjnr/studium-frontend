@@ -8,10 +8,18 @@ import {mensagemErro, mensagemSucesso} from '../../components/toastr/toastr'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import { Dialog } from 'primereact/dialog'
+import { Button } from 'primereact/button'
+
 class PesquisaLoans extends React.Component {
 
     state = {
         nome: '',
+        showConfirmDialog: false,
+        loanDeletar: {},
         loans : []
     }
 
@@ -36,17 +44,17 @@ class PesquisaLoans extends React.Component {
     }
 
     editar = (id) => {
-        
+            this.props.history.push(`/cadastro-emprestimo/${id}`)
     } 
 
-    deletar = (loan) => {
+    deletar = () => {
         this.service
-        .deletar(loan.id)
+        .deletar(this.state.loanDeletar.id)
         .then(response => {
             const loans = this.state.loans;
-            const index = loans.indexOf(loan)
+            const index = loans.indexOf(this.loanDeletar)
             loans.splice(index, 1)
-            this.setState(loans)
+            this.setState({loans: loans, showConfirmDialog: false})
 
             mensagemSucesso('Empréstimo excluido com sucesso!')
         }).catch(error => {
@@ -58,7 +66,27 @@ class PesquisaLoans extends React.Component {
         })
     }
 
+    abrirConfirmacao = (loan) => {
+        this.setState({showConfirmDialog: true, loanDeletar: loan})
+    }
+
+    cancelarDelecao = () => {
+        this.setState({showConfirmDialog: false, loanDeletar: {}})
+    }
+
+    abrirCadastroEmprestimo = () => {
+        this.props.history.push(`/cadastro-emprestimo`)
+    }
+
     render() {
+
+        const confirmDialogFooter = (
+            <div>
+                <Button Label="Confirmar" icon="pi pi-check" style={ { width: '40px' }} onClick={this.deletar}/>
+                <Button Label="Cancelar" icon="pi pi-times" style={ { width: '40px' }} onClick={this.cancelarDelecao} className="p-button-secondary"/>
+            </div>
+        );
+
         return (
         <div className="pt-5">
             <div className="card card-pesquisa">
@@ -71,13 +99,24 @@ class PesquisaLoans extends React.Component {
                                 id="inputNameClientLoan" placeholder="Nome do Cliente"/>
                         </div>
                         <button onClick={this.buscar} type="button" className="btn btn-success btn-pesquisa"> Buscar</button>
+                        <Button onClick={this.abrirCadastroEmprestimo} className="pi pi-plus btn-pesquisa" style={ {marginRight: '20px', padding: '10px', width: '70px'} }/>
                     </div>
                 </div>
                 <div className="row pt-4">
                     <div className="col-md-12">
                         <div className="bs-component">
-                            <TablePesquisaLoans pesquisarEmprestimos={this.state.loans} deleteAction={this.deletar} editAction={this.editar}/>
+                            <TablePesquisaLoans pesquisarEmprestimos={this.state.loans} deleteAction={this.abrirConfirmacao} editAction={this.editar}/>
                         </div>
+                    </div>
+                    <div>
+                    <Dialog header="Confirmação de Exclusão"
+                                visible={this.state.showConfirmDialog}
+                                footer={confirmDialogFooter}
+                                style={{width: '50vw'}}
+                                modal={true}
+                                onHide={() => this.setState({showConfirmDialog: false})}>
+                            Deseja mesmo excluir o livro?            
+                        </Dialog> 
                     </div>
                 </div>
             </div>

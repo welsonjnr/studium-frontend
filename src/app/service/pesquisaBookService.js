@@ -11,6 +11,10 @@ export default class pesquisaBookService extends ApiService{
         return this.get(params)
     }
 
+    pesquisarLivrosTelaPrincipal(){
+        return this.get(`/books/principal`)
+    }
+
     deletar(id){
         return this.delete(`/books/${id}`)
     }
