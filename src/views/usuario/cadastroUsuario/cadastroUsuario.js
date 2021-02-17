@@ -105,11 +105,11 @@ class CadastroUsuario extends React.Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="bs-component">
-                                    <input type="text" className="form-control"
+                                    <input type="text" required="true" className="form-control"
                                         id="inputNameClient" placeholder="Nome do Usuário"
                                         value={this.state.name} onChange={e => this.setState({ name: e.target.value })} />
 
-                                    <input type="text" className="form-control"
+                                    <input type="text" required="true" className="form-control"
                                         id="inputCpfClient" placeholder="CPF"
                                         value={this.state.cpf} onChange={e => this.setState({ cpf: e.target.value })} />
 
@@ -121,7 +121,7 @@ class CadastroUsuario extends React.Component {
                                         id="inputInstituicaoClient" placeholder="Instituição"
                                         value={this.state.institution} onChange={e => this.setState({ institution: e.target.value })} />
 
-                                    <input type="email" className="form-control"
+                                    <input type="email" required="true" className="form-control"
                                         id="inputEmailCliente" placeholder="Email"
                                         value={this.state.email} onChange={e => this.setState({ email: e.target.value })} />
 

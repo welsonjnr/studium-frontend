@@ -2,3 +2,11 @@
     margin: 10px;
     margin-left: 80%;
 }
+
+input:required {
+    border: 3px solid #eee!important;
+    border-left-color: #ff9f43!important;    
+    border-left: 3px;
+    border-radius: 5px;
+   -webkit-transition: border-color .5s ease-out;  
+ }

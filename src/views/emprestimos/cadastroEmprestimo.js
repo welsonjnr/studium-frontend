@@ -21,18 +21,29 @@ class CadastroEmprestimo extends React.Component {
                 <div className="card card-pesquisa">
                     <div className="row">
                         <div className="col-md-10">
-                            <input type="text" className="form-control input-pesquisa row"
+                            <input type="text" required="true" className="form-control input-pesquisa"
                                 id="inputNameBookLoan" placeholder="Nome do Livro" />
                             </div>
-                            <div style={{marginTop: '23px', marginLeft: '25px'}}><button className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
+                            <div style={{marginTop: '23px', marginLeft: '35px'}}><button className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
+                            <div className="col-md-11 row" style={{marginLeft: '32px'}}>
+                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowAutorLivro" placeholder="autor" style={{marginRight: '2%'}}/>
+                            <input type="text" disabled="true" className="form-control col-md-2" id="inputshowQuantidadeLivro" placeholder="quantidade" style={{marginRight: '2%'}}/>
+                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowCategoriaLivro" placeholder="categoria" style={{marginRight: '2%' }}/>
+                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowStatusLivro" placeholder="status"/>
+                            </div>
                         </div>
                     <div className="card">
                     <div className="row">
                         <div className="col-md-10">
-                            <input type="text" className="form-control input-pesquisa row"
+                            <input type="text" required="true" className="form-control input-pesquisa"
                                 id="inputNameBookLoan" placeholder="Nome do Cliente" />
                             </div>
-                            <div style={{marginTop: '23px', marginLeft: '25px'}}><button className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
+                            <div style={{marginTop: '23px', marginLeft: '35px'}}><button className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
+                            <div className="col-md-11 row" style={{marginLeft: '32px'}}>
+                            <input type="text" disabled="true" className="form-control col-md-4" id="inputshowCPFLivro" placeholder="CPF" style={{marginRight: '2.7%'}}/>
+                            <input type="text" disabled="true" className="form-control col-md-4" id="inputshowEmailLivro" placeholder="email" style={{marginRight: '2.7%'}}/>
+                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowCursoLivro" placeholder="curso"/>
+                            </div>
                         </div>
                     </div>
                     <button id="btn-cadastro-emprestimo" onClick={this.abrirCadastro} title="Emprestar" type="button" className="btn btn-primary col-md-2"> Empréstimo</button>

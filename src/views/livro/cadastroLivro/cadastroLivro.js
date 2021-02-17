@@ -105,11 +105,11 @@ class CadastroLivro extends React.Component {
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="bs-component">
-                                        <input type="text" className="form-control"
+                                        <input type="text" required="true" className="form-control"
                                             id="inputNameBook" placeholder="Nome do Livro"
                                             value={this.state.name} onChange={e => this.setState({ name: e.target.value })} />
 
-                                        <input type="text" className="form-control"
+                                        <input type="text" required="true" className="form-control"
                                             id="inputAuthorBook" placeholder="Autor"
                                             value={this.state.author} onChange={e => this.setState({ author: e.target.value })} />
 
@@ -117,11 +117,11 @@ class CadastroLivro extends React.Component {
                                             id="inputEditionBook" placeholder="Edição"
                                             value={this.state.edition} onChange={e => this.setState({ edition: e.target.value })} />
 
-                                        <input type="number" className="form-control"
+                                        <input type="number" required="true" className="form-control"
                                             id="inputAmountBook" placeholder="Quantidade de Livros"
                                             value={this.state.amount} onChange={e => this.setState({ amount: e.target.value })} />
 
-                                        <input type="number" className="form-control"
+                                        <input type="number" required="true" className="form-control"
                                             id="inputCategoryBook" placeholder="Categoria"
                                             value={this.state.category} onChange={e => this.setState({ category: e.target.value })} />
 
