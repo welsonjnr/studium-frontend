@@ -7,6 +7,7 @@ import PesquisaClient from '../views/usuario/pesquisaUsuario/pesquisaClient'
 import CadastroLivro from '../views/livro/cadastroLivro/cadastroLivro'
 import PesquisaBooks from '../views/livro/pesquisaLivro/pesquisaLivro'
 import TelaPrincipal from '../views/telaPrincipal/telaPrincipal'
+import CadastroEmprestimo from '../views/emprestimos/cadastroEmprestimo'
 
 
 
@@ -20,6 +21,7 @@ function Rotas(){
                 <Route path="/pesquisa-cliente" component={PesquisaClient}/>
                 <Route path="/cadastro-livro/:id?" component={CadastroLivro}/>
                 <Route path="/pesquisa-livro" component={PesquisaBooks}/>
+                <Route path="/cadastro-emprestimo/:id?" component={CadastroEmprestimo}/>
             </Switch>
         </HashRouter>
     )
