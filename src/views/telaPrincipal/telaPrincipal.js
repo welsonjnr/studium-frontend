@@ -24,8 +24,8 @@ class TelaPrincipal extends React.Component {
         this.service = new PesquisaBookService();
     }
 
-    abrirCadastro = () =>{
-        this.props.history.push(`/cadastro-emprestimo`)
+    abrirCadastro = (id) =>{
+        this.props.history.push(`/cadastro-emprestimo/${id}`)
     }
 
     componentDidMount() {
@@ -41,7 +41,7 @@ class TelaPrincipal extends React.Component {
     render() {
         const bookRender = this.state.books.map(book => {
             return (
-                <div className="card card-body-book">
+                <div className="card card-body-book" key={book.id}>
                     <div className="card-title"> {book.name}</div>
                     <div className="card-text position-static">
                         <p className="format-font card-book-text">Autor: {book.author}</p>
@@ -49,7 +49,7 @@ class TelaPrincipal extends React.Component {
                         <p className="format-font card-book-text">Status: {book.bookStatus}</p>
                         <p className="format-font card-book-text">Quantidade: {book.amount}</p>
                         <p className="format-font card-book-text">Categoria: {book.category.name}</p>
-                        <button id="btn-emprestimo" onClick={this.abrirCadastro} title="Emprestar" type="button" className="btn btn-primary"> Empréstimo</button>
+                        <button id="btn-emprestimo" onClick={this.abrirCadastro(book.id)} title="Emprestar" type="button" className="btn btn-primary"> Empréstimo</button>
                     </div>
                 </div>
             )

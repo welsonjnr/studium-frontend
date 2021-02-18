@@ -29,13 +29,38 @@ class CadastroEmprestimo extends React.Component {
 
     }
 
-    selecionarCliente = () => {
-        
-    }
-
     constructor() {
         super();
         this.service = new PesquisaLoanService();
+    }
+
+    selecionarCliente = () => {
+        
+        const ClienteFiltro = {
+            inputNomeClientePesquisa: this.state.inputNomeClientePesquisa
+        }
+
+        if(ClienteFiltro !== ''){
+            this.service
+            .obterLoanByClientePorNome(this.state.inputNomeClientePesquisa)
+            .then(resposta => {
+                console.log(resposta)
+            })
+        } 
+    }
+
+    selecionarLivro = () => {
+        const LivroFiltro = {
+            inputNomeLivroPesquisa : this.state.inputNomeLivroPesquisa
+        }
+
+        if(LivroFiltro !== ''){
+            this.service
+            .obterBookPorNome(this.state.inputNomeLivroPesquisa)
+            .then(resposta => {
+                console.log(resposta)
+            })
+        }
     }
 
     render() {
@@ -45,9 +70,10 @@ class CadastroEmprestimo extends React.Component {
                     <div className="row">
                         <div className="col-md-10">
                             <input type="text" required="true" className="form-control input-pesquisa"
+                                value={this.state.inputNomeLivroPesquisa} onChange={e => this.setState({inputNomeLivroPesquisa: e.target.value})}
                                 id="inputNameBookLoan" placeholder="Nome do Livro" />
                             </div>
-                            <div style={{marginTop: '23px', marginLeft: '35px'}}><button className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
+                            <div style={{marginTop: '23px', marginLeft: '35px'}}><button onClick={this.selecionarLivro} className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
                             <div className="col-md-11 row" style={{marginLeft: '32px'}}>
                             <input type="text" disabled="true" className="form-control col-md-3" id="inputshowAutorLivro" placeholder="autor" style={{marginRight: '2%'}}/>
                             <input type="text" disabled="true" className="form-control col-md-2" id="inputshowQuantidadeLivro" placeholder="quantidade" style={{marginRight: '2%'}}/>
@@ -59,13 +85,14 @@ class CadastroEmprestimo extends React.Component {
                     <div className="row">
                         <div className="col-md-10">
                             <input type="text" required="true" className="form-control input-pesquisa"
+                                value={this.state.inputNomeClientePesquisa} onChange={e => this.setState({inputNomeClientePesquisa: e.target.value})}
                                 id="inputNameBookLoan" placeholder="Nome do Cliente" />
                             </div>
-                            <div style={{marginTop: '23px', marginLeft: '35px'}}><button className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
+                            <div style={{marginTop: '23px', marginLeft: '35px'}}><button onClick={this.selecionarCliente} className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
                             <div className="col-md-11 row" style={{marginLeft: '32px'}}>
-                            <input type="text" disabled="true" className="form-control col-md-4" id="inputshowCPFCliente" placeholder="CPF" style={{marginRight: '2.7%'}}/>
-                            <input type="text" disabled="true" className="form-control col-md-4" id="inputshowEmailCliente" placeholder="email" style={{marginRight: '2.7%'}}/>
-                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowStatusCliente" placeholder="status"/>
+                            <input type="text" value={this.state.cpfCliente} disabled="true" className="form-control col-md-4" id="inputshowCPFCliente" placeholder="CPF" style={{marginRight: '2.7%'}}/>
+                            <input type="text" value={this.state.emailCliente} disabled="true" className="form-control col-md-4" id="inputshowEmailCliente" placeholder="email" style={{marginRight: '2.7%'}}/>
+                            <input type="text" value={this.state.statusCliente} disabled="true" className="form-control col-md-3" id="inputshowStatusCliente" placeholder="status"/>
                             </div>
                         </div>
                     </div>

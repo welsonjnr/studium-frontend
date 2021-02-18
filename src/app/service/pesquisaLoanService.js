@@ -31,4 +31,7 @@ export default class pesquisaLoanService extends ApiService{
         return this.get(`/loans/findLoanByClientName/${nameClient}`)
     }
 
+    obterBookPorNome(nome){
+        return this.get(`/books/findBookName/${nome}`)
+    }
 }
