@@ -15,6 +15,10 @@ export default class pesquisaBookService extends ApiService{
         return this.get(`/books/principal`)
     }
 
+    obterBookPorNome(nome){
+        return this.get(`/books/findBookName/${nome}`)
+    }
+
     deletar(id){
         return this.delete(`/books/${id}`)
     }

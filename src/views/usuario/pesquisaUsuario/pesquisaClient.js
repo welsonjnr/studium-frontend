@@ -29,15 +29,26 @@ class PesquisaClient extends React.Component {
     }
 
     buscar = () => {
+        
         const clienteFiltro = {
             nome: this.state.nome
         }
+
+
+        if(clienteFiltro !== ''){
+            this.service
+            .obterClientePorNome(this.state.nome)
+            .then(resposta => {
+                this.setState({clientes: resposta.data})
+                return false;
+            })
+        } 
+
         this.service
-            .pesquisarClientes(clienteFiltro)
+            .pesquisarClientes()
             .then(resposta => {
                 mensagemSucesso('Clientes carregados!')
                 this.setState({ clientes: resposta.data  })
-                console.log(this.state.clientes)
             }).catch( error => {
                 mensagemErro('Não foi possível carregar os dados!')
             })

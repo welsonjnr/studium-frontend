@@ -13,7 +13,7 @@ export default props => {
                <td>{loans.nameClient}</td>
                <td>{loans.nameBook}</td>
                <td>{loans.loanDay}</td> 
-               <td>{loans.loanDay}</td>
+               <td>{loans.loanReturnDay}</td>
                <td>{loans.status}</td>
                <td>
                     <button type="button" title="Devolver" 

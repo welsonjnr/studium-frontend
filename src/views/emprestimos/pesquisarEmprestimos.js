@@ -29,15 +29,25 @@ class PesquisaLoans extends React.Component {
     }
 
     buscar = () => {
-        const loanFiltro = {
+     const loanClienteNomeFiltro = {
             nome: this.state.nome
         }
+
+        if(loanClienteNomeFiltro !== ''){
+         this.service
+            .obterLoanByClientePorNome(this.state.nome)
+            .then(resposta => {
+                this.setState({loans: resposta.data})
+                console.log(resposta)
+                return false
+            })
+        }
         this.service
-            .pesquisarEmprestimos(loanFiltro)
+            .pesquisarEmprestimos()
             .then(resposta => {
                 mensagemSucesso('Empréstimos carregados!')
-                this.setState({ loans: resposta.data  })
-                console.log(this.state.loans)
+                this.setState({ loans: resposta.data})
+                console.log(resposta)
             }).catch( error => {
                 mensagemErro('Não foi possível carregar os dados!')
             })

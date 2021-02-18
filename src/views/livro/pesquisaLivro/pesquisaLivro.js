@@ -30,11 +30,22 @@ class PesquisaBooks extends React.Component {
     }
 
     buscar = () => {
+
         const bookFiltro = {
             nome: this.state.nome
         }
+
+        if(bookFiltro !== ''){
+            this.service
+            .obterBookPorNome(this.state.nome)
+            .then(resposta => {
+                this.setState({books: resposta.data})
+                return false;
+            })
+        } 
+
         this.service
-            .pesquisarLivros(bookFiltro)
+            .pesquisarLivros()
             .then(resposta => {
                 mensagemSucesso('Livros carregados!')
                 this.setState({ books: resposta.data  })
@@ -96,7 +107,7 @@ class PesquisaBooks extends React.Component {
                         <div className="bs-component">
                         <input type="text" className="form-control input-pesquisa"
                                 value={this.state.nome} onChange={e => this.setState({nome: e.target.value})}
-                                id="inputNameBook" placeholder="Nome do Livro"/>
+                                id="inputNameBook" placeholder="Nome do Livro*"/>
                         </div>
                         <button onClick={this.buscar} type="button" className="btn btn-success btn-pesquisa"> Buscar</button>
                         <Button onClick={this.abrirCadastroLivro} className="pi pi-plus btn-pesquisa" style={ {marginRight: '20px', padding: '10px', width: '70px'} }/>
