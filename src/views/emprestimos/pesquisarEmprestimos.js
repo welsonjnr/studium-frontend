@@ -13,6 +13,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Dialog } from 'primereact/dialog'
 import { Button } from 'primereact/button'
+import { faGrinTongueSquint } from '@fortawesome/free-solid-svg-icons'
 
 class PesquisaLoans extends React.Component {
 
@@ -76,6 +77,23 @@ class PesquisaLoans extends React.Component {
         })
     }
 
+    renovarEmprestimo = () => {
+        const loan = {
+            id: this.state.loans.id,
+            bookId: this.state.loans.bookId,
+            clientId: this.state.loans.clientId
+        }
+
+        this.service.renovarLoan(loan)
+        .then(resposta => {
+            console.log(resposta)
+            mensagemSucesso('Livro renovado com sucesso')
+        }).catch(erro => {
+            mensagemErro('Não foi possível realizar a renovação')
+        })
+
+    }
+
     abrirConfirmacao = (loan) => {
         this.setState({showConfirmDialog: true, loanDeletar: loan})
     }
@@ -115,7 +133,7 @@ class PesquisaLoans extends React.Component {
                 <div className="row pt-4">
                     <div className="col-md-12">
                         <div className="bs-component">
-                            <TablePesquisaLoans pesquisarEmprestimos={this.state.loans} deleteAction={this.abrirConfirmacao} editAction={this.editar}/>
+                            <TablePesquisaLoans pesquisarEmprestimos={this.state.loans} renewAction={this.renovarEmprestimo} deleteAction={this.abrirConfirmacao} editAction={this.editar}/>
                         </div>
                     </div>
                     <div>

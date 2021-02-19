@@ -17,12 +17,12 @@ export default props => {
                <td>{loans.status}</td>
                <td>
                     <button type="button" title="Devolver" 
-                    className="btn btn-success btn-sm" disabled={loans.status !== 'DEVOLVIDO' || loans !== 'CANCELADO'}
+                    className="btn btn-success btn-sm" disabled={loans.status == 'DEVOLVIDO' || loans.status == 'CANCELADO'}
                     onClick={e => props.editAction(loans.id)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faArrowAltCircleDown}/></button>
                     <button type="button" title="Renovar" 
-                    className="btn btn-dark btn-sm" disabled={loans.status !== 'DEVOLVIDO' || loans !== 'CANCELADO'}
-                    onClick={e => props.editAction(loans.id)}>
+                    className="btn btn-dark btn-sm" disabled={loans.status == 'DEVOLVIDO' || loans.status == 'CANCELADO'}
+                    onClick={e => props.renewAction(loans.id)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faUndo}/></button>
                     <button type="button" title="Editar" className="btn btn-primary btn-sm"
                     onClick={e => props.editAction(loans.id)}>

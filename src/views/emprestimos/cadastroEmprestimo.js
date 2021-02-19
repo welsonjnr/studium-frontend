@@ -9,7 +9,7 @@ import '../emprestimos/emprestimo.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faGrinTongueSquint, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class CadastroEmprestimo extends React.Component {
@@ -17,16 +17,8 @@ class CadastroEmprestimo extends React.Component {
     state = {
         inputNomeLivroPesquisa: '',
         inputNomeClientePesquisa: '',
-        autorLivro: '',
-        quantidadeLivro: '',
-        categoriaLivro: '',
-        statusLivro: '',
-        cpfCliente: '',
-        emailCliente: '',
-        statusCliente: '',
-        modalParaPesquisaLivro: false,
-        modalParaPesquisaCliente: false
-
+        cliente: {},
+        book: {}
     }
 
     constructor() {
@@ -34,17 +26,49 @@ class CadastroEmprestimo extends React.Component {
         this.service = new PesquisaLoanService();
     }
 
+    componentDidMount(){
+        const params = this.props.match.params.id;
+        if(params){
+            this.service.obterLivroPorId(params)
+            .then(resposta => {
+                const book = resposta.data
+                console.log(resposta)
+                this.setState({book})
+                this.setState({inputNomeLivroPesquisa: book.name})
+            })
+        }
+    }
+
+    cadastrarEmprestimo = () => {
+        const loan = {
+            id: '',
+            bookId: this.state.book.id,
+            clientId : this.state.cliente.id
+        }
+        this.service.cadastrarLoan(loan)
+        .then(resposta => {
+            console.log(resposta)
+            mensagemSucesso('Emprestimo realizado')
+            this.props.history.push('/home')
+        }).catch(erro => {
+            mensagemErro('Não foi possível realizar o emprestimo')
+            mensagemErro('Confira os campos dos STATUS')
+            console.log(erro)
+        })
+
+    }
+
     selecionarCliente = () => {
-        
         const ClienteFiltro = {
             inputNomeClientePesquisa: this.state.inputNomeClientePesquisa
         }
 
         if(ClienteFiltro !== ''){
             this.service
-            .obterLoanByClientePorNome(this.state.inputNomeClientePesquisa)
+            .obterClientePorNomeUnico(this.state.inputNomeClientePesquisa)
             .then(resposta => {
-                console.log(resposta)
+                const cliente = resposta.data
+                this.setState({ cliente });
             })
         } 
     }
@@ -56,9 +80,11 @@ class CadastroEmprestimo extends React.Component {
 
         if(LivroFiltro !== ''){
             this.service
-            .obterBookPorNome(this.state.inputNomeLivroPesquisa)
+            .obterBookPorNomeUnico(this.state.inputNomeLivroPesquisa)
             .then(resposta => {
-                console.log(resposta)
+                const book = resposta.data
+                this.setState({book})
+                console.log(book)
             })
         }
     }
@@ -70,33 +96,35 @@ class CadastroEmprestimo extends React.Component {
                     <div className="row">
                         <div className="col-md-10">
                             <input type="text" required="true" className="form-control input-pesquisa"
-                                value={this.state.inputNomeLivroPesquisa} onChange={e => this.setState({inputNomeLivroPesquisa: e.target.value})}
+                                value={this.state.inputNomeLivroPesquisa == '' ? this.state.inputNomeLivroPesquisa : this.state.book.name} onChange={e => this.setState({inputNomeLivroPesquisa: e.target.value})}
                                 id="inputNameBookLoan" placeholder="Nome do Livro" />
                             </div>
                             <div style={{marginTop: '23px', marginLeft: '35px'}}><button onClick={this.selecionarLivro} className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
                             <div className="col-md-11 row" style={{marginLeft: '32px'}}>
-                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowAutorLivro" placeholder="autor" style={{marginRight: '2%'}}/>
-                            <input type="text" disabled="true" className="form-control col-md-2" id="inputshowQuantidadeLivro" placeholder="quantidade" style={{marginRight: '2%'}}/>
-                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowCategoriaLivro" placeholder="categoria" style={{marginRight: '2%' }}/>
-                            <input type="text" disabled="true" className="form-control col-md-3" id="inputshowStatusLivro" placeholder="status"/>
+                            <input type="text" value={this.state.book.author} disabled="true" className="form-control col-md-3" id="inputshowAutorLivro" placeholder="autor" style={{marginRight: '2%'}}/>
+                            <input type="text" value={this.state.book.amount} disabled="true" className="form-control col-md-2" id="inputshowQuantidadeLivro" placeholder="quantidade" style={{marginRight: '2%'}}/>
+                            <input type="text" value={this.state.book.edition} disabled="true" className="form-control col-md-3" id="inputshowEditionLivro" placeholder="edição" style={{marginRight: '2%' }}/>
+                            <input type="text" value={this.state.book.bookStatus} disabled="true" className="form-control col-md-3" id="inputshowStatusLivro" placeholder="status"/>
                             </div>
                         </div>
                     <div className="card">
                     <div className="row">
                         <div className="col-md-10">
                             <input type="text" required="true" className="form-control input-pesquisa"
-                                value={this.state.inputNomeClientePesquisa} onChange={e => this.setState({inputNomeClientePesquisa: e.target.value})}
+                                value={this.state.inputNomeClientePesquisa == '' ? this.state.inputNomeClientePesquisa : this.state.cliente.name} onChange={e => this.setState({inputNomeClientePesquisa: e.target.value})}
                                 id="inputNameBookLoan" placeholder="Nome do Cliente" />
                             </div>
                             <div style={{marginTop: '23px', marginLeft: '35px'}}><button onClick={this.selecionarCliente} className="btn btn-success btn-sm"><FontAwesomeIcon className="fas fa-bars fa-2x" icon={faSearch} /></button></div>
                             <div className="col-md-11 row" style={{marginLeft: '32px'}}>
-                            <input type="text" value={this.state.cpfCliente} disabled="true" className="form-control col-md-4" id="inputshowCPFCliente" placeholder="CPF" style={{marginRight: '2.7%'}}/>
-                            <input type="text" value={this.state.emailCliente} disabled="true" className="form-control col-md-4" id="inputshowEmailCliente" placeholder="email" style={{marginRight: '2.7%'}}/>
-                            <input type="text" value={this.state.statusCliente} disabled="true" className="form-control col-md-3" id="inputshowStatusCliente" placeholder="status"/>
+                            <input type="text" value={this.state.cliente.cpf} disabled="true" className="form-control col-md-4" id="inputshowCPFCliente" placeholder="CPF" style={{marginRight: '2.7%'}}/>
+                            <input type="text" value={this.state.cliente.email} disabled="true" className="form-control col-md-4" id="inputshowEmailCliente" placeholder="email" style={{marginRight: '2.7%'}}/>
+                            <input type="text" value={this.state.cliente.status} disabled="true" className="form-control col-md-3" id="inputshowStatusCliente" placeholder="status"/>
                             </div>
                         </div>
                     </div>
-                    <button id="btn-cadastro-emprestimo" onClick={this.abrirCadastro} title="Emprestar" type="button" className="btn btn-primary col-md-2"> Empréstimo</button>
+                    <div className="row">
+                    <button id="btn-cadastro-emprestimo" onClick={this.cadastrarEmprestimo} title="Emprestar" type="button" className="btn btn-primary col-md-2"> Empréstimo</button>
+                    </div>
                 </div>
             </div>
         )

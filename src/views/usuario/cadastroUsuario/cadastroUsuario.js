@@ -31,11 +31,10 @@ class CadastroUsuario extends React.Component {
         if(params){
             this.service.obterClientePorId(params)
             .then(response => {
-                console.log(response)
                 this.setState({...response.data, atualizando: true})
             })
             .catch(error => {
-                console.log(error)
+                mensagemErro('Não foi possível carregar o cliente')
             })
         }
     }

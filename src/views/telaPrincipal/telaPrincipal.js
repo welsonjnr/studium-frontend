@@ -49,7 +49,7 @@ class TelaPrincipal extends React.Component {
                         <p className="format-font card-book-text">Status: {book.bookStatus}</p>
                         <p className="format-font card-book-text">Quantidade: {book.amount}</p>
                         <p className="format-font card-book-text">Categoria: {book.category.name}</p>
-                        <button id="btn-emprestimo" onClick={this.abrirCadastro(book.id)} title="Emprestar" type="button" className="btn btn-primary"> Empréstimo</button>
+                        <button id="btn-emprestimo" onClick={e => this.abrirCadastro(book.id)} title="Emprestar" type="button" className="btn btn-primary"> Empréstimo</button>
                     </div>
                 </div>
             )

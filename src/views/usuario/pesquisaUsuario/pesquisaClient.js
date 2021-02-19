@@ -39,6 +39,7 @@ class PesquisaClient extends React.Component {
             this.service
             .obterClientePorNome(this.state.nome)
             .then(resposta => {
+                console.log(resposta)
                 this.setState({clientes: resposta.data})
                 return false;
             })
