@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Switch, HashRouter } from 'react-router-dom'
 
-import PesquisaLoans from '../views/emprestimos/pesquisarEmprestimos' 
-import CadastroUsuario from '../views/usuario/cadastroUsuario/cadastroUsuario'
-import PesquisaClient from '../views/usuario/pesquisaUsuario/pesquisaClient'
-import CadastroLivro from '../views/livro/cadastroLivro/cadastroLivro'
-import PesquisaBooks from '../views/livro/pesquisaLivro/pesquisaLivro'
-import TelaPrincipal from '../views/telaPrincipal/telaPrincipal'
-import CadastroEmprestimo from '../views/emprestimos/cadastroEmprestimo'
+import PesquisaLoans from '../views/emprestimo/dashboard/DashboardEmprestimo' 
+import CadastroUsuario from '../views/cliente/cadastro/CadastroCliente'
+import PesquisaClient from '../views/cliente/dashboard/DashboardCliente'
+import CadastroLivro from '../views/livro/cadastro/CadastroLivro'
+import PesquisaBooks from '../views/livro/dashboard/DashboardLivro'
+import TelaPrincipal from '../views/home/Home'
+import CadastroEmprestimo from '../views/emprestimo/cadastro/CadastroEmprestimo'
 
 
 
