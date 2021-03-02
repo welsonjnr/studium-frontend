@@ -18,16 +18,13 @@ export default props => {
                <td>
                     <button type="button" title="Devolver" 
                     className="btn btn-success btn-sm" disabled={loans.status == 'DEVOLVIDO' || loans.status == 'CANCELADO'}
-                    onClick={e => props.editAction(loans.id)}>
+                    onClick={e => props.returnAction(loans.id, loans.bookId, loans.clientId)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faArrowAltCircleDown}/></button>
                     <button type="button" title="Renovar" 
-                    className="btn btn-dark btn-sm" disabled={loans.status == 'DEVOLVIDO' || loans.status == 'CANCELADO'}
-                    onClick={e => props.renewAction(loans.id)}>
+                    className="btn btn-dark btn-sm" disabled={loans.status == 'DEVOLVIDO' || loans.status == 'CANCELADO' || loans.status == 'RENOVADO'}
+                    onClick={e => props.renewAction(loans.id, loans.bookId, loans.clientId)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faUndo}/></button>
-                    <button type="button" title="Editar" className="btn btn-primary btn-sm"
-                    onClick={e => props.editAction(loans.id)}>
-                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faEdit}/></button>
-                    <button type="button" title="Cancelar" className="btn btn-danger btn-sm"
+                    <button type="button" title="Cancelar" className="btn btn-danger btn-sm" disabled={loans.status == 'RENOVADO' || loans.status == 'OK'}
                     onClick={e => props.deleteAction(loans)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faWindowClose}/></button>
                </td>

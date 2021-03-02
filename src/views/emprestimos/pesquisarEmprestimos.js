@@ -77,21 +77,43 @@ class PesquisaLoans extends React.Component {
         })
     }
 
-    renovarEmprestimo = () => {
+    renovarEmprestimo = (id, bookId, clientId) => {
         const loan = {
-            id: this.state.loans.id,
-            bookId: this.state.loans.bookId,
-            clientId: this.state.loans.clientId
+            id: id,
+            bookId: bookId,
+            clientId: clientId
         }
 
         this.service.renovarLoan(loan)
         .then(resposta => {
-            console.log(resposta)
+            this.service.pesquisarEmprestimos()
+            .then(resposta => {
+                this.setState({loans: resposta.data})
+            })
             mensagemSucesso('Livro renovado com sucesso')
         }).catch(erro => {
             mensagemErro('Não foi possível realizar a renovação')
         })
 
+    }
+
+    devolverEmprestimo = (id, bookId, clientId ) => {
+        const loan = {
+            id: id, 
+            bookId: bookId,
+            clientId: clientId
+        }
+
+        this.service.retornarLoan(loan)
+        .then(resposta => {
+            this.service.pesquisarEmprestimos()
+            .then(resposta => {
+                this.setState({loans: resposta.data})
+            })
+            mensagemSucesso('Livro renovado com sucesso')
+        }).catch(erro => {
+            mensagemErro('Não foi possível realizar a renovação')
+        })
     }
 
     abrirConfirmacao = (loan) => {
@@ -126,14 +148,14 @@ class PesquisaLoans extends React.Component {
                                 value={this.state.nome} onChange={e => this.setState({nome: e.target.value})}
                                 id="inputNameClientLoan" placeholder="Nome do Cliente"/>
                         </div>
+                        <button onClick={this.abrirCadastroEmprestimo} type="button" className="btn btn-primary btn-pesquisa"> Novo</button>
                         <button onClick={this.buscar} type="button" className="btn btn-success btn-pesquisa"> Buscar</button>
-                        <Button onClick={this.abrirCadastroEmprestimo} className="pi pi-plus btn-pesquisa" style={ {marginRight: '20px', padding: '10px', width: '70px'} }/>
                     </div>
                 </div>
                 <div className="row pt-4">
                     <div className="col-md-12">
                         <div className="bs-component">
-                            <TablePesquisaLoans pesquisarEmprestimos={this.state.loans} renewAction={this.renovarEmprestimo} deleteAction={this.abrirConfirmacao} editAction={this.editar}/>
+                            <TablePesquisaLoans pesquisarEmprestimos={this.state.loans} returnAction={this.devolverEmprestimo} renewAction={this.renovarEmprestimo} deleteAction={this.abrirConfirmacao} editAction={this.editar}/>
                         </div>
                     </div>
                     <div>

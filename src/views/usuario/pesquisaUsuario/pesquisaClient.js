@@ -110,8 +110,8 @@ class PesquisaClient extends React.Component {
                                 value={this.state.nome} onChange={e => this.setState({nome: e.target.value})}
                                 id="inputNameClient" placeholder="Nome do Usuário*"/>
                         </div>
+                        <button onClick={this.abrirCadastroCliente} type="button" className="btn btn-primary btn-pesquisa"> Novo</button>
                         <button onClick={this.buscar} type="button" className="btn btn-success btn-pesquisa"> Buscar</button>
-                        <Button onClick={this.abrirCadastroCliente} className="pi pi-plus btn-pesquisa" style={ {marginRight: '20px', padding: '10px', width: '70px'} }/>
                     </div>
                 </div>
                 <div className="row pt-4">

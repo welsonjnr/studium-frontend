@@ -2,7 +2,18 @@ import axios from 'axios'
 
 const httpClient = axios.create({
     baseURL: 'http://localhost:8080'
-})
+});
+
+const authorization = localStorage.getItem('authorization');
+
+httpClient.interceptors.request.use(cfg => {
+    if (authorization) {
+        cfg.headers.Authorization = authorization
+    }
+    return cfg;
+}, err => {
+    return Promise.reject(err)
+});
 
 class ApiService{
 

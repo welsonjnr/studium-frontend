@@ -62,4 +62,4 @@ class TelaPrincipal extends React.Component {
     }
 }
 
-export default withRouter(TelaPrincipal);
+export default TelaPrincipal;
