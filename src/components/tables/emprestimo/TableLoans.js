@@ -23,9 +23,6 @@ export default props => {
                     <button type="button" title="Renovar" 
                     className="btn btn-dark btn-sm" disabled={loans.status == 'DEVOLVIDO' || loans.status == 'CANCELADO'}
                     onClick={e => props.renewAction(loans.id)}>
-                    <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faUndo}/></button>
-                    <button type="button" title="Editar" className="btn btn-primary btn-sm"
-                    onClick={e => props.editAction(loans.id)}>
                     <FontAwesomeIcon className="fas fa-bars fa-2x"icon={faEdit}/></button>
                     <button type="button" title="Cancelar" className="btn btn-danger btn-sm"
                     onClick={e => props.deleteAction(loans)}>

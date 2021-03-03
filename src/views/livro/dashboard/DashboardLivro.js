@@ -30,25 +30,20 @@ class DashboardLivro extends React.Component {
     }
 
     buscar = () => {
-
-        const bookFiltro = {
-            nome: this.state.nome
+        let bookFiltro = this.state.nome;
+        if(bookFiltro === ''){
+            bookFiltro = 'x8'
         }
-
-        if(bookFiltro !== ''){
-            this.service
-            .obterBookPorNome(this.state.nome)
-            .then(resposta => {
-                this.setState({books: resposta.data})
-                return false;
-            })
-        } 
-
         this.service
-            .pesquisarLivros()
+            .pesquisarBooksPerPage()
             .then(resposta => {
+                console.log(resposta)
+                console.log(resposta)
+                console.log(resposta)
+                console.log(resposta)
+                console.log(resposta)
                 mensagemSucesso('Livros carregados!')
-                this.setState({ books: resposta.data  })
+                this.setState({ books: resposta.data.content })
             }).catch( error => {
                 mensagemErro('Não foi possível carregar os dados!')
             })

@@ -32,15 +32,15 @@ class BookService extends ApiService{
     }
 
     cadastrarBook(livro){
-        return this.post('/books', livro)
+        return this.post('/library/books', livro)
     }
 
     obterLivroPorId(id){
-        return this.get(`/books/${id}`)
+        return this.get(`/library/books/${id}`)
     }
 
     atualizarLivro(livro){
-        return this.put(`/books/${livro.id}`, livro )
+        return this.put(`/library/books/${livro.id}`, livro )
     }
 
 }

@@ -7,47 +7,43 @@ export default class pesquisaLoanService extends ApiService{
     }
 
     pesquisarEmprestimos(){
-        let params = `/loans`
+        let params = `/library/loans`
         return this.get(params)
     }
 
     deletar(id){
-        return this.delete(`/loans/${id}`)
+        return this.delete(`/library/loans/${id}`)
     }
 
     cadastrarLoan(loan){
-        return this.post('/loans', loan)
+        return this.post('/library/loans', loan)
     }
 
     renovarLoan(loan){
-        return this.put(`/loans/renew/${loan.id}`, loan)
+        return this.put(`/library/loans/renew/${loan.id}`, loan)
     }
 
     retornarLoan(loan){
-        return this.put(`/loans/return/${loan.id}`, loan)
-    }
-
-    obterClientePorNome(nome){
-        return this.get(`/clients/findClientName/${nome}`)
+        return this.put(`/library/loans/return/${loan.id}`, loan)
     }
 
     obterClientePorNomeUnico(nome){
-        return this.get(`/clients/findClientNameUnico/${nome}`)
+        return this.get(`/library/clients/findClientNameUnico/${nome}`)
     }
 
     obterLoanByClientePorNome(nameClient){
-        return this.get(`/loans/findLoanByClientName/${nameClient}`)
+        return this.get(`/library/loans/findLoanByClientName/${nameClient}`)
     }
 
     obterLivroPorId(id){
-        return this.get(`/books/${id}`)
+        return this.get(`/library/books/${id}`)
     }
 
     obterBookPorNome(nome){
-        return this.get(`/books/findBookName/${nome}`)
+        return this.get(`/library/books/findBookName/${nome}`)
     }
 
     obterBookPorNomeUnico(nome){
-        return this.get(`/books/findBookNameUnico/${nome}`)
+        return this.get(`/library/books/findBookNameUnico/${nome}`)
     }
 }

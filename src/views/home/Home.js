@@ -30,9 +30,9 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.service
-            .pesquisarLivrosTelaPrincipal()
+            .pesquisarBooksPerPage()
             .then(response => {
-                this.setState({ books: response.data })
+                this.setState({ books: response.data.content })
             }).catch(error => {
                 mensagemErro('Houve um erro ao carregar os livros, tente novamente')
             })

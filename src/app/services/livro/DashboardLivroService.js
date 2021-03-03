@@ -6,20 +6,25 @@ export default class pesquisaBookService extends ApiService{
         super()
     }
 
-    pesquisarLivros(){
-        let params = `/books`
+    pesquisarLivros(filtro){
+        let params = `/library/books/findBookByName/${filtro}`
         return this.get(params)
     }
 
-    pesquisarLivrosTelaPrincipal(){
-        return this.get(`/books/principal`)
+    pesquisarBooksPerPage(){
+        let params = `/library/books/find/page`
+        return this.get(params)
+    }
+
+    homeLivros(){
+        return this.get(`/library/books/home`)
     }
 
     obterBookPorNome(nome){
-        return this.get(`/books/findBookName/${nome}`)
+        return this.get(`/library/books/findBookByName/${nome}`)
     }
 
     deletar(id){
-        return this.delete(`/books/${id}`)
+        return this.delete(`/library/books/${id}`)
     }
 }

@@ -30,23 +30,13 @@ class DashboardCliente extends React.Component {
 
     buscar = () => {
         
-        const clienteFiltro = {
-            nome: this.state.nome
+        let clienteFiltro = this.state.nome;
+        if(clienteFiltro === ''){
+            clienteFiltro = 'x8'
         }
 
-
-        if(clienteFiltro !== ''){
-            this.service
-            .obterClientePorNome(this.state.nome)
-            .then(resposta => {
-                console.log(resposta)
-                this.setState({clientes: resposta.data})
-                return false;
-            })
-        } 
-
         this.service
-            .pesquisarClientes()
+            .pesquisarClientes(clienteFiltro)
             .then(resposta => {
                 mensagemSucesso('Clientes carregados!')
                 this.setState({ clientes: resposta.data  })

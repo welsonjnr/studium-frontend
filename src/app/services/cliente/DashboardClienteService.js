@@ -6,16 +6,16 @@ export default class pesquisaClientService extends ApiService{
         super()
     }
 
-    pesquisarClientes(){
-        let params = `/clients`
+    pesquisarClientes(filtro){
+        let params = `/library/clients/findClientByName/${filtro}`
         return this.get(params)
     }
 
     obterClientePorNome(nome){
-        return this.get(`/clients/findClientName/${nome}`)
+        return this.get(`/library/clients/findClientName/${nome}`)
     }
 
     deletar(id){
-        return this.delete(`/clients/${id}`)
+        return this.delete(`/library/clients/${id}`)
     }
 }
